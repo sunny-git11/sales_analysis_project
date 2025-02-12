@@ -1,0 +1,144 @@
+# Define units sold in each category
+category_A_sold = 150  # Example value
+category_B_sold = 100  # Example value
+
+# Calculate total units sold
+total_units_sold = category_A_sold + category_B_sold
+
+# Calculate difference between categories
+difference = abs(category_A_sold - category_B_sold)
+
+# Calculate ratio of units sold (handling division by zero)
+ratio = category_A_sold / category_B_sold if category_B_sold != 0 else "Undefined"
+
+# Display results
+output = (
+    "Total units sold: {}\n".format(total_units_sold) +
+    "Difference between categories: {}\n".format(difference) +
+    "Ratio of units sold (A to B): {}".format(ratio)
+)
+print(output)
+
+# Personalized marketing message for loyalty program
+age = 18
+age_str = str(age)
+marketing_message = (
+    "Dear Kshitij,\n\n"
+    "As you turn {}, it's the perfect time to enjoy exclusive rewards! ".format(age_str) +
+    "Join our personalized loyalty program and unlock exciting offers curated just for you.\n\n"
+    "Don't miss out—sign up today and make the most of your shopping experience!\n\n"
+    "Best regards,\nThe Loyalty Program Team"
+)
+print(marketing_message)
+
+# Product list and price analysis
+products = {
+    "Laptop": 1200,
+    "Smartphone": 800,
+    "Headphones": 150,
+    "Smartwatch": 250,
+    "Tablet": 600,
+    "Gaming PC": 2000  # Premium product
+}
+
+highest_priced_product = max(products, key=products.get)
+lowest_priced_product = min(products, key=products.get)
+
+print("Highest priced product: {} - ${}".format(highest_priced_product, products[highest_priced_product]))
+print("Lowest priced product: {} - ${}".format(lowest_priced_product, products[lowest_priced_product]))
+
+# Mid-range product price analysis
+mid_range_products = {key: value for key, value in products.items() if 200 <= value <= 900}
+
+highest_mid_priced_product = max(mid_range_products, key=mid_range_products.get)
+lowest_mid_priced_product = min(mid_range_products, key=mid_range_products.get)
+
+print("Highest priced mid-range product: {} - ${}".format(highest_mid_priced_product, mid_range_products[highest_mid_priced_product]))
+print("Lowest priced mid-range product: {} - ${}".format(lowest_mid_priced_product, mid_range_products[lowest_mid_priced_product]))
+
+# Print updated product list for inventory team
+print("Updated Product List:")
+for product, price in products.items():
+    print("{}: ${}".format(product, price))
+
+# Print product names in uppercase for better visibility in reports
+print("\nProducts Sold (Uppercase for Visibility - Using For Loop):")
+for product in products.keys():
+    print(product.upper())
+
+print("\nProducts Sold (Uppercase for Visibility - Using While Loop):")
+product_list = list(products.keys())
+i = 0
+while i < len(product_list):
+    print(product_list[i].upper())
+    i += 1
+
+# Dictionary storing key product information
+product_info = {
+    "product_name": "Gaming PC",
+    "SKU": "GPC-2024",
+    "price": 2000,
+    "category": "Premium Electronics"
+}
+
+print("Product Information:")
+for key, value in product_info.items():
+    print("{}: {}".format(key, value))
+
+# Print product name and SKU when queried by a customer care representative
+def query_product_info():
+    print("Product Name: {}".format(product_info['product_name']))
+    print("SKU: {}".format(product_info['SKU']))
+
+# Simulating a customer care query
+query_product_info()
+
+# Function to take stock level as input and print status
+def check_stock_level():
+    stock_level = int(input("Enter stock level: "))
+    threshold = 20  # Define reorder threshold
+    if stock_level > threshold:
+        print("Stock is sufficient.")
+    else:
+        print("Reorder Now!")
+
+# Call function to check stock level
+check_stock_level()
+
+# Function to calculate area of store section
+def calculate_area(length, width):
+    return length * width
+
+# Example store sections and area calculation
+sections = {
+    "Electronics": (30, 20),
+    "Clothing": (25, 15),
+    "Groceries": (40, 35)
+}
+
+print("\nStore Section Areas:")
+for section, dimensions in sections.items():
+    area = calculate_area(dimensions[0], dimensions[1])
+    print("{} section area: {} square meters".format(section, area))
+
+# Loyalty points calculation
+def calculate_loyalty_points(purchase_amount):
+    if purchase_amount >= 1000:
+        return purchase_amount * 2  # High spender multiplier
+    elif purchase_amount >= 500:
+        return purchase_amount * 1.5  # Medium spender multiplier
+    else:
+        return purchase_amount * 1  # Low spender multiplier
+
+customers_spending = {
+    "Alice": 1200,
+    "Bob": 750,
+    "Charlie": 300,
+    "David": 1800,
+    "Eve": 500
+}
+
+print("\nLoyalty Points Earned:")
+for customer, amount in customers_spending.items():
+    points = calculate_loyalty_points(amount)
+    print("{} earned {} points".format(customer, points))
